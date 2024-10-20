@@ -31,10 +31,7 @@ const Calculator = () => {
     try {
       const data = math.evaluate(input);
       setResult(data);
-      console.log(`input ${input} result ${data}`);
       history.push(`${input} = ${data}`);
-      console.log(history.length);
-      console.log(history.map((e) => e));
     } catch (error) {
       setResult("Invalid operation", error);
     }
