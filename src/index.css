@@ -104,3 +104,88 @@ button:nth-child(4n):hover {
   padding: 2px;
   margin: 10px;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+}
+
+.dropdown-toggle {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 250px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.dropdown-toggle:hover {
+  background-color: #45a049;
+}
+
+.arrow {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  visibility: hidden;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.input-container {
+  width: 150px;
+  max-width: 150px;
+  display: inline-block;
+
+}
+
+.styled-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+.styled-input::placeholder {
+  color: #aaa;
+}
+
+.styled-input:focus {
+  border-color: #45a049;
+  box-shadow: 0 0 5px rgba(72, 199, 77, 0.5);
+}

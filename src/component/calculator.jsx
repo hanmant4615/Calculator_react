@@ -4,10 +4,12 @@ import { FaHistory } from "react-icons/fa";
 import { SlCalculator } from "react-icons/sl";
 import { RxRulerHorizontal } from "react-icons/rx";
 import { FaBackspace } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const math = create(all);
 let history = [];
+
 const Calculator = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
@@ -20,7 +22,7 @@ const Calculator = () => {
   };
 
   const showHistory = () => {
-    console.log(history.length);
+    navigate("/history", { state: history.toString() });
   };
 
   const handleClear = () => {
