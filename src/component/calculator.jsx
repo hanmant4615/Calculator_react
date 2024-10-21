@@ -4,6 +4,7 @@ import { FaHistory } from "react-icons/fa";
 import { SlCalculator } from "react-icons/sl";
 import { RxRulerHorizontal } from "react-icons/rx";
 import { FaBackspace } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const math = create(all);
 let history = [];
 const Calculator = () => {
@@ -29,66 +30,65 @@ const Calculator = () => {
 
   const handleCalculate = () => {
     try {
-      const data = math.evaluate(input);
+      const data = Number(math.evaluate(input).toFixed(2));
       setResult(data);
-      console.log(`input ${input} result ${data}`);
       history.push(`${input} = ${data}`);
-      console.log(history.length);
-      console.log(history.map((e) => e));
     } catch (error) {
       setResult("Invalid operation", error);
     }
   };
 
   return (
-    <div className="calculator">
-      <div className="display">
-        <div className="input">{input}</div>
-        <div className="result">{result}</div>
+    <>
+      <div key="display" className="calculator">
+        <div className="display">
+          <div className="input">{input}</div>
+          <div className="result">{result}</div>
+        </div>
+        <div className="buttons">
+          <button onClick={() => showHistory()} disabled={history.length === 0}>
+            <FaHistory />
+          </button>
+          <button>
+            <Link to="/covert">
+              <RxRulerHorizontal />
+            </Link>
+          </button>
+          <button>
+            <Link to="/sci-cal">
+              <SlCalculator />
+            </Link>
+          </button>
+          <button onClick={() => deleteChar()}>
+            <FaBackspace />
+          </button>
+          {["7", "8", "9", "/"].map((btn) => (
+            <button key={btn} onClick={() => handleClick(btn)}>
+              {btn}
+            </button>
+          ))}
+          {["4", "5", "6", "*"].map((btn) => (
+            <button key={btn} onClick={() => handleClick(btn)}>
+              {btn}
+            </button>
+          ))}
+          {["1", "2", "3", "-"].map((btn) => (
+            <button key={btn} onClick={() => handleClick(btn)}>
+              {btn}
+            </button>
+          ))}
+          {["0", ".", "=", "+"].map((btn) => (
+            <button
+              key={btn}
+              onClick={btn === "=" ? handleCalculate : () => handleClick(btn)}
+            >
+              {btn}
+            </button>
+          ))}
+          <button onClick={handleClear}>C</button>
+        </div>
       </div>
-      <div className="buttons">
-        <button onClick={() => showHistory()} disabled={history.length === 0}>
-          <FaHistory />
-        </button>
-        <button>
-          <a href="/covert">
-            <RxRulerHorizontal />
-          </a>
-        </button>
-        <button>
-          <a href="\covert">
-            <SlCalculator />
-          </a>
-        </button>
-        <button onClick={() => deleteChar()}>
-          <FaBackspace />
-        </button>
-        {["7", "8", "9", "/"].map((btn) => (
-          <button key={btn} onClick={() => handleClick(btn)}>
-            {btn}
-          </button>
-        ))}
-        {["4", "5", "6", "*"].map((btn) => (
-          <button key={btn} onClick={() => handleClick(btn)}>
-            {btn}
-          </button>
-        ))}
-        {["1", "2", "3", "-"].map((btn) => (
-          <button key={btn} onClick={() => handleClick(btn)}>
-            {btn}
-          </button>
-        ))}
-        {["0", ".", "=", "+"].map((btn) => (
-          <button
-            key={btn}
-            onClick={btn === "=" ? handleCalculate : () => handleClick(btn)}
-          >
-            {btn}
-          </button>
-        ))}
-        <button onClick={handleClear}>C</button>
-      </div>
-    </div>
+    </>
   );
 };
 
