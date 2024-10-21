@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Calculator from "./component/calculator";
 import Converter from "./component/coverter";
+import ScientificCalculator from "./component/scientificCal";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Calculator />} />
         <Route path="/covert" element={<Converter />} />
+        <Route path="/sci-cal" element={<ScientificCalculator />} />
       </Routes>
     </React.StrictMode>
   </BrowserRouter>
