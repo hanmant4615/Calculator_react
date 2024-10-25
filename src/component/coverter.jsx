@@ -31,7 +31,7 @@ function Coverter() {
   };
 
   return (
-    <div style={{ width: "500px" }}>
+    <div className="converterdiv">
       <div className="input-container">
         <input
           type="text"

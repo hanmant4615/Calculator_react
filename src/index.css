@@ -225,3 +225,7 @@ button:nth-child(4n):hover {
 #display {
   margin: 10px;
 }
+
+.converterdiv {
+  width: 500px
+}
