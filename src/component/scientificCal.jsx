@@ -4,13 +4,14 @@ import { FaBackspace, FaHistory } from "react-icons/fa";
 import { RiSquareRoot } from "react-icons/ri";
 import { FaPlusMinus } from "react-icons/fa6";
 import { RxRulerHorizontal } from "react-icons/rx";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiCalculator2 } from "react-icons/ci";
 
 let history = [];
 const math = create(all);
 
 const ScientificCalculator = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
@@ -23,7 +24,7 @@ const ScientificCalculator = () => {
   };
 
   const showHistory = () => {
-    console.log(history.length);
+    navigate("/history", { state: history.toString() });
   };
   const handleClear = () => {
     setInput("");
@@ -101,6 +102,7 @@ const ScientificCalculator = () => {
         <button onClick={handleClear}>C</button>
 
         <button onClick={() => handleClick("0")}>0</button>
+        <button onClick={() => handleClick(".")}>.</button>
         <button onClick={() => handleClick("-")}>
           <FaPlusMinus />
         </button>
