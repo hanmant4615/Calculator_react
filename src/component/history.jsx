@@ -1,21 +1,23 @@
 import React from "react";
+import { MdDeleteOutline } from "react-icons/md";
 import { useLocation } from "react-router-dom";
 
 function History() {
   const location = useLocation();
-  //   const data1 = location.data || {};
   const data1 = location.state || [];
-
-  console.log(typeof data1);
   const values = data1.split(",");
 
-  console.log(values);
-
   return (
-    <>
-      <div className="buttons">{values.map((e) => e)}</div>
-      <button className="buttons">clear history</button>
-    </>
+    <div className="historydiv">
+      <div>
+        {values.map((e) => (
+          <div id="display">{e}</div>
+        ))}
+      </div>
+      <button className="btn">
+        <MdDeleteOutline />
+      </button>
+    </div>
   );
 }
 

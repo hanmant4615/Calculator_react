@@ -189,3 +189,39 @@ button:nth-child(4n):hover {
   border-color: #45a049;
   box-shadow: 0 0 5px rgba(72, 199, 77, 0.5);
 }
+
+.btn {
+  padding: 5px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+  text-align: center;
+  width: 60px;
+}
+
+.btn:hover {
+  background-color: #d4d4d4;
+}
+
+.btn:active {
+  background-color: #ccc;
+}
+
+.historydiv {
+  width: 300px;
+  margin: auto;
+  border: 1px solid #ccc;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 10px;
+}
+
+#display {
+  margin: 10px;
+}
