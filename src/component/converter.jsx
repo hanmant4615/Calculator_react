@@ -189,9 +189,17 @@ const Converter = () => {
             </select>
           </div>
           <p className="convert-result">Result: {lengthResult}</p>
-          <button onClick={convertLength} className="convert-button">
-            Convert
-          </button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <button onClick={convertLength} className="convert-button">
+              Convert
+            </button>
+          </div>
         </section>
       )}
 
@@ -232,10 +240,18 @@ const Converter = () => {
               <option value="K">Kelvin (K)</option>
             </select>
           </div>
-          <p className="result">Result: {tempResult}</p>
-          <button onClick={convertTemperature} className="convert-button">
-            Convert
-          </button>
+          <p className="convert-result">Result: {tempResult}</p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <button onClick={convertTemperature} className="convert-button">
+              Convert
+            </button>
+          </div>
         </section>
       )}
 
@@ -280,10 +296,18 @@ const Converter = () => {
               <option value="acre">Acre (acre)</option>
             </select>
           </div>
-          <p className="result">Result: {areaResult}</p>
-          <button onClick={convertArea} className="convert-button">
-            Convert
-          </button>
+          <p className="convert-result">Result: {areaResult}</p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <button onClick={convertArea} className="convert-button">
+              Convert
+            </button>
+          </div>
         </section>
       )}
     </div>

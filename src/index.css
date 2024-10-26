@@ -46,6 +46,7 @@ code {
   font-size: 1em;
   margin-top: 5px;
   color: #28a745;
+  text-align: center;
 }
 
 .buttons {
@@ -329,4 +330,10 @@ section {
 
 .convert-btn:hover {
   background-color: #0056b3;
+}
+
+.convert-btn-div {
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
 }
