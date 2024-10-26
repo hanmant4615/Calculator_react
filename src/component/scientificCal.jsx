@@ -52,7 +52,7 @@ const ScientificCalculator = () => {
           <FaHistory />
         </button>
         <button>
-          <Link to="/covert">
+          <Link to="/convert">
             <RxRulerHorizontal />
           </Link>
         </button>
