@@ -146,7 +146,14 @@ const Converter = () => {
         </button>
       </div>
       {length && (
-        <section>
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <h2>Length Converter</h2>
           <input
             type="number"
@@ -204,7 +211,14 @@ const Converter = () => {
       )}
 
       {temp && (
-        <section>
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <h2>Temperature Converter</h2>
           <input
             type="number"
@@ -256,7 +270,14 @@ const Converter = () => {
       )}
 
       {area && (
-        <section>
+        <section
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <h2>Area Converter</h2>
           <input
             type="number"
