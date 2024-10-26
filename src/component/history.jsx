@@ -1,6 +1,7 @@
 import React from "react";
+import { IoChevronBackSharp } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function History() {
   const location = useLocation();
@@ -16,6 +17,11 @@ function History() {
       </div>
       <button className="btn">
         <MdDeleteOutline />
+      </button>
+      <button className="btn">
+        <Link to="/">
+          <IoChevronBackSharp />
+        </Link>
       </button>
     </div>
   );
