@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { CiDark } from "react-icons/ci";
 
 const Converter = () => {
   const [tempInputValue, setTempInputValue] = useState(0);
@@ -10,6 +11,11 @@ const Converter = () => {
   const [tempFromUnit, setTempFromUnit] = useState("°C");
   const [tempToUnit, setTempToUnit] = useState("°F");
   const [tempResult, setTempResult] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
 
   const convertTemperature = () => {
     let convertedResult;
@@ -106,7 +112,7 @@ const Converter = () => {
   };
 
   return (
-    <div className="converter-container">
+    <div className={isDarkMode ? "dark-mode" : "converter-container"}>
       <h1>Unit Converter</h1>
       <div>
         <button
@@ -117,7 +123,7 @@ const Converter = () => {
           }}
           className="convert-btn"
         >
-          Area Convert
+          Area
         </button>
         <button
           onClick={() => {
@@ -127,7 +133,7 @@ const Converter = () => {
           }}
           className="convert-btn"
         >
-          temp Convert
+          Temperature
         </button>
         <button
           onClick={() => {
@@ -137,14 +143,18 @@ const Converter = () => {
           }}
           className="convert-btn"
         >
-          Length Convert
+          Length
         </button>
         <button className="convert-button">
           <Link to="/">
             <IoChevronBackSharp />
           </Link>
         </button>
+        <button className="convert-btn" onClick={toggleDarkMode}>
+          <CiDark />
+        </button>
       </div>
+
       {length && (
         <section
           style={{
