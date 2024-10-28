@@ -5,6 +5,7 @@ import { SlCalculator } from "react-icons/sl";
 import { RxRulerHorizontal } from "react-icons/rx";
 import { FaBackspace } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { CiDark } from "react-icons/ci";
 const math = create(all);
 let history = [];
 
@@ -12,7 +13,11 @@ const Calculator = () => {
   const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => !prevMode);
+  };
   const handleClick = (value) => {
     setInput((prev) => prev + value);
   };
@@ -42,52 +47,86 @@ const Calculator = () => {
 
   return (
     <>
-      <div key="display" className="calculator">
+      <div
+        key="display"
+        className={isDarkMode ? "dark-mode-cal-display " : "calculator"}
+      >
         <div className="display">
           <div className="input">{input}</div>
           <div className="result">{result}</div>
         </div>
         <div className="buttons">
-          <button onClick={() => showHistory()} disabled={history.length === 0}>
+          <button
+            className={isDarkMode ? "dark-button" : ""}
+            onClick={() => showHistory()}
+            disabled={history.length === 0}
+          >
             <FaHistory />
           </button>
-          <button>
-            <Link to="/covert">
+          <button className={isDarkMode ? "dark-button" : ""}>
+            <Link to="/convert">
               <RxRulerHorizontal />
             </Link>
           </button>
-          <button>
+          <button className={isDarkMode ? "dark-button" : ""}>
             <Link to="/sci-cal">
               <SlCalculator />
             </Link>
           </button>
-          <button onClick={() => deleteChar()}>
+          <button
+            className={isDarkMode ? "dark-button" : ""}
+            onClick={() => deleteChar()}
+          >
             <FaBackspace />
           </button>
           {["7", "8", "9", "/"].map((btn) => (
-            <button key={btn} onClick={() => handleClick(btn)}>
+            <button
+              className={isDarkMode ? "dark-button" : ""}
+              key={btn}
+              onClick={() => handleClick(btn)}
+            >
               {btn}
             </button>
           ))}
           {["4", "5", "6", "*"].map((btn) => (
-            <button key={btn} onClick={() => handleClick(btn)}>
+            <button
+              className={isDarkMode ? "dark-button" : ""}
+              key={btn}
+              onClick={() => handleClick(btn)}
+            >
               {btn}
             </button>
           ))}
           {["1", "2", "3", "-"].map((btn) => (
-            <button key={btn} onClick={() => handleClick(btn)}>
+            <button
+              key={btn}
+              className={isDarkMode ? "dark-button" : ""}
+              onClick={() => handleClick(btn)}
+            >
               {btn}
             </button>
           ))}
           {["0", ".", "=", "+"].map((btn) => (
             <button
+              className={isDarkMode ? "dark-button" : ""}
               key={btn}
               onClick={btn === "=" ? handleCalculate : () => handleClick(btn)}
             >
               {btn}
             </button>
           ))}
-          <button onClick={handleClear}>C</button>
+          <button
+            className={isDarkMode ? "dark-button" : ""}
+            onClick={handleClear}
+          >
+            C
+          </button>
+          <button
+            className={isDarkMode ? "dark-button" : ""}
+            onClick={toggleDarkMode}
+          >
+            <CiDark />
+          </button>
         </div>
       </div>
     </>
