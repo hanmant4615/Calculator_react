@@ -57,7 +57,7 @@ code {
 }
 
 button {
-  padding: 20px;
+  padding: 15px 15px;
   font-size: 1.5em;
   border: none;
   border-radius: 15px;
@@ -199,7 +199,7 @@ button:nth-child(4n):hover {
 }
 
 .btn {
-  padding: 5px;
+  padding: 2px;
   font-size: 1.5em;
   border: none;
   margin: 0px 6px;
