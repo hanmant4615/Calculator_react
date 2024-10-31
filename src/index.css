@@ -202,7 +202,20 @@ button:nth-child(4n):hover {
   padding: 2px;
   font-size: 1.5em;
   border: none;
-  margin: 0px 5px;
+  margin: 0px 6px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s;
+  text-align: center;
+  width: 60px;
+}
+
+.dark-btn {
+  padding: 5px;
+  font-size: 1.5em;
+  border: none;
+  margin: 0px 6px;
   border-radius: 15px;
   cursor: pointer;
   background-color: #e0e0e0;
@@ -229,6 +242,19 @@ button:nth-child(4n):hover {
   background-color: #f9f9f9;
   text-align: center;
   padding: 10px;
+}
+
+.dark-historydiv {
+  width: 300px;
+  margin: auto;
+  border: 1px solid #ccc;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #1c1b1b;
+  text-align: center;
+  padding: 10px;
+  color: white;
 }
 
 #display {
