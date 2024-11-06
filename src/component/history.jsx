@@ -17,8 +17,10 @@ function History() {
   return (
     <div className={isDarkMode ? "dark-historydiv" : "historydiv"}>
       <div>
-        {values.map((e) => (
-          <div id="display">{e}</div>
+        {values.map((e, i) => (
+          <div id="display" key={i}>
+            {e}
+          </div>
         ))}
       </div>
       <button className="btn">

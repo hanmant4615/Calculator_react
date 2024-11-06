@@ -41,7 +41,7 @@ const ScientificCalculator = () => {
       setResult(data);
       history.push(`${input} = ${data}`);
     } catch (error) {
-      setResult("Invalid operation");
+      setResult("Invalid operation", error);
     }
   };
 
