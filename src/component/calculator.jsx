@@ -15,19 +15,18 @@ const Calculator = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [lastActionWasResult, setLastActionWasResult] = useState(false); // New state variable
+  const [lastActionWasResult, setLastActionWasResult] = useState(false);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
 
   const handleClick = (value) => {
-    // Clear input if the last action was a result
     if (lastActionWasResult) {
-      setInput(value); // Start fresh with the new input
-      setLastActionWasResult(false); // Reset the flag
+      setInput(value);
+      setLastActionWasResult(false);
     } else {
-      setInput((prev) => prev + value); // Append the new value
+      setInput((prev) => prev + value);
     }
   };
 
@@ -42,7 +41,7 @@ const Calculator = () => {
   const handleClear = () => {
     setInput("");
     setResult("");
-    setLastActionWasResult(false); // Reset the flag
+    setLastActionWasResult(false);
   };
 
   const handleCalculate = () => {
@@ -50,10 +49,10 @@ const Calculator = () => {
       const data = Number(math.evaluate(input).toFixed(2));
       setResult(data);
       history.push(`${input} = ${data}`);
-      setLastActionWasResult(true); // Set the flag to true after showing the result
+      setLastActionWasResult(true);
     } catch (error) {
       setResult("Invalid operation");
-      setLastActionWasResult(false); // Reset the flag on error
+      setLastActionWasResult(false);
     }
   };
 
