@@ -6,6 +6,7 @@ import { RxRulerHorizontal } from "react-icons/rx";
 import { FaBackspace } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { CiDark } from "react-icons/ci";
+
 const math = create(all);
 let history = [];
 
@@ -14,12 +15,20 @@ const Calculator = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [lastActionWasResult, setLastActionWasResult] = useState(false); // New state variable
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => !prevMode);
   };
+
   const handleClick = (value) => {
-    setInput((prev) => prev + value);
+    // Clear input if the last action was a result
+    if (lastActionWasResult) {
+      setInput(value); // Start fresh with the new input
+      setLastActionWasResult(false); // Reset the flag
+    } else {
+      setInput((prev) => prev + value); // Append the new value
+    }
   };
 
   const deleteChar = () => {
@@ -33,6 +42,7 @@ const Calculator = () => {
   const handleClear = () => {
     setInput("");
     setResult("");
+    setLastActionWasResult(false); // Reset the flag
   };
 
   const handleCalculate = () => {
@@ -40,8 +50,10 @@ const Calculator = () => {
       const data = Number(math.evaluate(input).toFixed(2));
       setResult(data);
       history.push(`${input} = ${data}`);
+      setLastActionWasResult(true); // Set the flag to true after showing the result
     } catch (error) {
-      setResult("Invalid operation", error);
+      setResult("Invalid operation");
+      setLastActionWasResult(false); // Reset the flag on error
     }
   };
 
@@ -100,7 +112,7 @@ const Calculator = () => {
           {["1", "2", "3", "-"].map((btn) => (
             <button
               key={btn}
-              className={isDarkMode ? "dark-button" : ""}
+              className={isDarkMode ? "dark-button " : ""}
               onClick={() => handleClick(btn)}
             >
               {btn}
